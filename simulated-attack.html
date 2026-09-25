@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>⚠️ Simulated Attack Page — QRShield Demo</title>
+<style>
+  :root {
+    --bg: #0a0e14;
+    --red: #ff3b3b;
+    --green: #00ff88;
+    --dim: #6b7280;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: #e5e7eb;
+    font-family: 'Courier New', Consolas, monospace;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .container {
+    max-width: 640px;
+    width: 100%;
+  }
+  .disclaimer {
+    background: #1a2332;
+    border: 1px solid #2d3f5c;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #93c5fd;
+    line-height: 1.5;
+  }
+  .disclaimer b { color: #60a5fa; }
+  .terminal {
+    background: #000;
+    border: 2px solid var(--red);
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(255, 59, 59, 0.25);
+    overflow: hidden;
+  }
+  .titlebar {
+    background: #1c1c1c;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #333;
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.r { background: #ff5f56; }
+  .dot.y { background: #ffbd2e; }
+  .dot.g { background: #27c93f; }
+  .titlebar span {
+    margin-left: 8px;
+    font-size: 12px;
+    color: #999;
+  }
+  .screen {
+    padding: 26px 24px 30px;
+  }
+  .alert-icon {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .headline {
+    color: var(--red);
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .sub {
+    text-align: center;
+    color: var(--dim);
+    font-size: 13px;
+    margin-bottom: 22px;
+  }
+  .log-line {
+    font-size: 13.5px;
+    line-height: 1.9;
+    white-space: pre-wrap;
+  }
+  .log-line .prompt { color: var(--green); }
+  .log-line .path { color: #60a5fa; }
+  .log-line .warn { color: var(--red); }
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background: var(--green);
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .footer-note {
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px dashed #333;
+    font-size: 12px;
+    color: var(--dim);
+    text-align: center;
+  }
+  .badge {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 10px 16px;
+    background: rgba(0,255,136,0.08);
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    color: var(--green);
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="disclaimer">
+      <b>⚠ This is a simulated mockup for a hackathon demo.</b> No file was downloaded, no script was executed,
+      and no system was accessed. This page exists only to illustrate what a real QR-based attack chain
+      could look like, for the purpose of pitching <b>QRShield</b> as a defensive tool.
+    </div>
+
+    <div class="terminal">
+      <div class="titlebar">
+        <div class="dot r"></div>
+        <div class="dot y"></div>
+        <div class="dot g"></div>
+        <span>C:\Windows\System32\cmd.exe — simulated_alert.bat (mockup)</span>
+      </div>
+      <div class="screen">
+        <div class="alert-icon">🔓</div>
+        <div class="headline">YOU'VE BEEN HACKED</div>
+        <div class="sub">(simulated output — not a real system event)</div>
+
+        <div class="log-line"><span class="prompt">C:\Users\Guest&gt;</span> scanning QR payload...
+<span class="path">C:\Temp\free_wifi_login.bat</span> — downloaded
+<span class="path">C:\Temp\free_wifi_login.bat</span> — executing...
+
+<span class="warn">[!] Unauthorized script execution detected</span>
+<span class="warn">[!] System files would be at risk</span>
+<span class="warn">[!] Attacker-controlled popup displayed to user</span>
+
+This is what a malicious QR code <b>could</b> trigger —
+a fake "free WiFi" or "menu" QR silently pointing to a
+script download instead of the page you expected.<span class="cursor"></span></div>
+
+        <div class="badge">
+          ✅ QRShield would have flagged this URL <b>before</b> the scan completed —
+          IP-based host, suspicious keywords, no HTTPS.
+        </div>
+
+        <div class="footer-note">
+          Simulated for demonstration purposes only — QRShield Hackathon Demo
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
